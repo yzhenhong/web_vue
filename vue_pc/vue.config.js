@@ -3,7 +3,7 @@ const path = require("path");
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
-const ip = "http://localhost:80";
+const ip = "http://xxx";
 const port = process.env.port || process.env.npm_config_port || 80;
 
 const { defineConfig } = require("@vue/cli-service");
@@ -27,10 +27,6 @@ module.exports = defineConfig({
     open: false,
     port,
     proxy: {
-      "/node/server": {
-        target: "http://192.168.1.184:8888/",
-        changeOrigin: true,
-      },
       "/api": {
         target: ip,
         changeOrigin: true,
@@ -82,6 +78,7 @@ module.exports = defineConfig({
   },
   //
   configureWebpack: {
+    plugins: [require("unplugin-vue-define-options/webpack")()],
     resolve: {
       alias: {
         "@": resolve("src"),
