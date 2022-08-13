@@ -3,7 +3,7 @@ const path = require("path");
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
-const ip = "http://xxx";
+const ip = "http://localhost:90/";
 const port = process.env.port || process.env.npm_config_port || 80;
 
 const { defineConfig } = require("@vue/cli-service");
@@ -33,6 +33,10 @@ module.exports = defineConfig({
         pathRewrite: {
           "^/api": "/v1",
         },
+      },
+      "/files": {
+        target: ip,
+        changeOrigin: true,
       },
       "/socket.io": {
         target: ip, // target host

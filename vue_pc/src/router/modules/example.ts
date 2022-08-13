@@ -32,6 +32,17 @@ const pcRoutes: Array<RouteRecordRaw> = [
         },
       },
       {
+        path: "/example/files",
+        name: "example-files",
+        component: () =>
+          import(
+            /* webpackChunkName: "example" */ "@/views/example/files/index.vue"
+          ),
+        meta: {
+          title: "files",
+        },
+      },
+      {
         path: "/example/mapbox",
         name: "example-mapbox",
         component: () =>
