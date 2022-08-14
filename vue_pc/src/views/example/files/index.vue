@@ -2,9 +2,9 @@
   <div class="files">
     <div>files</div>
     <div>
-      <!-- <img src="http://localhost:90/app/1.png" alt="" /> -->
-      <video src=""></video>
-      <audio src=""></audio>
+      <img src="http://localhost:3000/imgs/1.png" alt="" />
+      <video src="http://localhost:3000/videos/1.mp4"></video>
+      <!-- <audio src=""></audio> -->
     </div>
   </div>
 </template>
@@ -16,9 +16,18 @@ defineOptions({
 });
 const { proxy }: any = getCurrentInstance();
 const ajax = proxy.$ajax;
-ajax.get("/files/xx").then((res: unknown) => {
+ajax.get("/files").then((res: unknown) => {
   console.log(res);
 });
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.files {
+  img,
+  video,
+  audio {
+    width: 400px;
+    height: 200px;
+  }
+}
+</style>

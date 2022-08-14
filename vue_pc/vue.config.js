@@ -3,7 +3,7 @@ const path = require("path");
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
-const ip = "http://localhost:90/";
+const ip = "http://localhost:3000/";
 const port = process.env.port || process.env.npm_config_port || 80;
 
 const { defineConfig } = require("@vue/cli-service");
